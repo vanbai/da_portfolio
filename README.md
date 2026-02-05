@@ -1,9 +1,9 @@
 # Портфолио аналитика данных / Data Analyst Portfolio
 
 ## Работа в Excel / Excel cases
-[Работа 1 - View on Google.Docs](https://docs.google.com/spreadsheets/d/1IX8HbL4OvF12qWsVYsTqIWjDiBBEu90q/edit?usp=drive_link&ouid=104984544571836462014&rtpof=true&sd=true)
-[Работа 2 - View on Google.Docs](https://docs.google.com/spreadsheets/d/19sWFiW75WHH3--SL71rZQG9U-Ornl451/edit?usp=sharing&ouid=104984544571836462014&rtpof=true&sd=true)
-[Работа 3 - View on Google.Docs](https://docs.google.com/spreadsheets/d/1CapNvgyIElkTDE7SH_dHHn21XLMDPR5_/edit?usp=sharing&ouid=104984544571836462014&rtpof=true&sd=true)
+- [Работа 1 - View on Google.Docs](https://docs.google.com/spreadsheets/d/1IX8HbL4OvF12qWsVYsTqIWjDiBBEu90q/edit?usp=drive_link&ouid=104984544571836462014&rtpof=true&sd=true)
+- [Работа 2 - View on Google.Docs](https://docs.google.com/spreadsheets/d/19sWFiW75WHH3--SL71rZQG9U-Ornl451/edit?usp=sharing&ouid=104984544571836462014&rtpof=true&sd=true)
+- [Работа 3 - View on Google.Docs](https://docs.google.com/spreadsheets/d/1CapNvgyIElkTDE7SH_dHHn21XLMDPR5_/edit?usp=sharing&ouid=104984544571836462014&rtpof=true&sd=true)
 
 ## Анализ данных с помощью Python / Data analysis with Python
 ### Пример 1
