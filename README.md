@@ -271,3 +271,6 @@ group by cohort) t
 select avg_cnt * k_factor as future_cohort
 from volume_of_cohorts, k_factor_calc
 ```
+
+### Примеры дашбордов в Google Sheets / Dashboards
+[Ссылка на дашборд](https://docs.google.com/spreadsheets/d/13nv60w50lTXmBAAG4mnT6GJdzBbylwcHi3HQb3-vIjo/edit?usp=sharing)
