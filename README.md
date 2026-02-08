@@ -228,3 +228,45 @@ print(f'Прирост прибыли в результате проведени
 [Анализ сегментов и клиентской базы - Ссылка на файл JupyterNotebook](https://drive.google.com/file/d/1OfgbD0bgkh61XACdacC0QwhbZo9JBHs7/view?usp=sharing)
 
 [Анализ A/B теста и создание Excel-калькулятора на основе результатов анализа - Ссылка на файл JupyterNotebook](https://drive.google.com/drive/folders/1Dhpvwe1q6QIoO5LA50eNXPD10ureJHCo?usp=sharing)
+
+## Работа с запросами SQL / SQL cases
+### Расчет средней продолжительности игровой сессии и расчет будущей когорты
+```select cohort
+      , avg(gs.end_session - gs.start_session) as avg_time_of_session
+from (select id_user
+            , case when date_trunc('month', reg_date) in ('2022-11-01', '2022-12-01') then '11-12.2022' else 'Остальньные когорты' end as cohort
+       from skygame.users
+     ) c
+     join skygame.game_sessions gs
+         on c.id_user = gs.id_user
+where gs.end_session - gs.start_session > interval '5 minute'
+group by cohort
+
+
+with cnt_refs as
+(select u.id_user
+    , count(r.ref_reg) as shares_per_user
+    , sum(r.ref_reg) as cnt_refs
+from skygame.users u
+    full join skygame.referral r
+        on u.id_user = r.id_user
+group by u.id_user
+),
+k_factor_calc as
+(select avg(shares_per_user) as avg_shares_per_user
+     , sum(cnt_refs) / sum(shares_per_user)::float as refs_ratio
+     , avg(shares_per_user) * (sum(cnt_refs) / sum(shares_per_user)) as k_factor
+from cnt_refs
+),
+volume_of_cohorts as
+(select avg(coh_vol) as avg_cnt from
+(select date_trunc('month', reg_date) as cohort
+     , count(*) as coh_vol
+from skygame.users
+group by cohort) t
+)
+
+
+select avg_cnt * k_factor as future_cohort
+from volume_of_cohorts, k_factor_calc
+```
